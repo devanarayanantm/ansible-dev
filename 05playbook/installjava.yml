@@ -1,7 +1,15 @@
 ---
+
 - hosts: all
-  become:
-          true
+  become: true
+
   tasks:
     - name: Update apt cache 
+      apt:
+        update_cache: yes
+
+    - name: Java installation
+      apt: 
+        name: openjdk-17-jdk-headless
+        state: present
       
